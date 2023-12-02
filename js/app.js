@@ -1,6 +1,8 @@
 var finalRotationAngle = 0;
 
+var nombres = ["Nombre1", "Nombre2", "Nombre3", "Nombre4", "Nombre5", "Nombre6", "Nombre7", "Nombre8"];
 document.getElementById('spin').addEventListener('click', function () {
+    //setDivs()
     // Obtén la referencia al contenedor de la ruleta
     var container = document.querySelector('.container');
 
@@ -11,7 +13,7 @@ document.getElementById('spin').addEventListener('click', function () {
     container.style.transform = 'rotate(0deg)';
 
     // Calcula la duración total en segundos
-    var totalSeconds = 3;
+    var totalSeconds = 5;
 
     // Asegúrate de que la transición se aplique
     setTimeout(() => {
@@ -46,6 +48,18 @@ document.getElementById('spin').addEventListener('click', function () {
     }, totalSeconds * 1000);
 });
   
+function setDivs(){
+    // Obtén el contenedor de la ruleta
+    var wheelContainer = document.getElementById('wheelContainer');
+
+    // Genera dinámicamente los divs basados en el arreglo de nombres
+    for (var i = 0; i < nombres.length; i++) {
+        var div = document.createElement('div');
+        div.textContent = nombres[i];
+        div.className = 'nameDiv'; // Agrega una clase para referencia futura si es necesario
+        wheelContainer.appendChild(div);
+    }
+}
   
   
 function detectarDivSuperior(finalAngle) {
